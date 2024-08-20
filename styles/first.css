@@ -1,0 +1,52 @@
+body{
+    width:100%;
+    height:100%;
+}
+main img{
+    height: 200px;
+    width: 200px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+}
+ul li{
+    list-style-type: none;
+}
+
+.results{
+    display: flex;
+    width: 400px;
+    height: auto;
+}
+
+
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display:grid;
+    -webkit-mask: conic-gradient(from 15deg,#0000,#000);
+    animation: l26 1s infinite steps(12);
+  }
+  .loader,
+  .loader:before,
+  .loader:after{
+    background:
+      radial-gradient(closest-side at 50% 12.5%,
+       #4857dd 96%,#0000) 50% 0/20% 80% repeat-y,
+      radial-gradient(closest-side at 12.5% 50%,
+       #31327c 96%,#0000) 0 50%/80% 20% repeat-x;
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    grid-area: 1/1;
+    transform: rotate(30deg);
+  }
+  .loader:after {
+    transform: rotate(60deg);
+  }
+  
+  @keyframes l26 {
+    100% {transform:rotate(1turn)}
+  }
