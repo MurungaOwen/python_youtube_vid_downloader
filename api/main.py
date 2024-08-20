@@ -2,8 +2,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from pytube import YouTube
-
+import yt_dlp
 app = FastAPI()
 
 # Add CORS middleware
@@ -16,19 +15,20 @@ app.add_middleware(
 )
 
 class YouTubeRequest(BaseModel):
+    """youtube url"""
     url: str
 
-import yt_dlp
 
 @app.post("/download")
 async def process_youtube_url(request: YouTubeRequest):
+    """gain data on url"""
     print("url is ", request.url)
     
     ydl_opts = {
         'format': 'best',
         'noplaylist': True
     }
-    
+
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info_dict = ydl.extract_info(request.url, download=False)
         video_info = {
