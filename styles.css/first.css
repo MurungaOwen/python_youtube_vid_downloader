@@ -1,0 +1,19 @@
+body{
+    width:100%;
+    height:100%;
+}
+main img{
+    height: 200px;
+    width: 200px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+}
+ul li{
+    list-style-type: none;
+}
+
+.visible{
+    display: flex;
+}
